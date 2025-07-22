@@ -1,6 +1,6 @@
 # .devcontainer/Dockerfile
 # Use a base image with Python and common build tools
-FROM python:3.9-slim-buster
+FROM python:3.11-slim-bookworm
 
 # Install system dependencies required for FinRL and its libraries
 # e.g., for some ML libraries, or if you need specific compilers

@@ -1,69 +1,17 @@
-// .devcontainer/devcontainer.json
 {
-    "name": "FinRL Development Environment",
-    "build": {
-        "dockerfile": "Dockerfile", // This refers to .devcontainer/Dockerfile
-        "context": ".."            // <-- CHANGE THIS: Sets the build context to the repository root
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-python.python", // Python extension
-                "ms-toolsai.jupyter", // Jupyter extension for notebooks
-                "ms-toolsai.vscode-jupyter-cell-tags",
-                "ms-toolsai.jupyter-keymap",
-                "ms-toolsai.jupyter-renderers",
-                "eamodio.gitlens", // GitLens for enhanced Git capabilities
-                "esbenp.prettier-vscode", // Code formatter
-                "redhat.vscode-yaml" // YAML support for Gitpod config
-            ],
-            "settings": {
-                "python.pythonPath": "/usr/local/bin/python",
-                "python.linting.pylintEnabled": true,
-                "python.formatting.provider": "black"
-            }
-        }
-    },
-    "portsAttributes": {
-        "8888": {
-            "label": "Jupyter Notebook",
-            "onAutoForward": "notify"
-        }
-    },
-    "postStartCommand": "pip install --no-cache-dir -r requirements.txt && python -m ipykernel install --user --name=finrl-env",
-    "tasks": [
-        {
-            "name": "Run Tests",
-            "command": "pytest",
-            "type": "shell"
-        },
-        {
-            "name": "Start Jupyter Lab",
-            "command": "jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser",
-            "type": "shell",
-            "openBrowser": "8888"
-        }
-    ],
-    "gitpod": {
-        "prebuilds": {
-            "master": true,
-            "branches": true,
-            "pullRequests": true,
-            "pullRequestsFromForks": true,
-            "addCheck": true
-        },
-        "ports": [
-            {
-                "port": 8888,
-                "onOpen": "notify"
-            }
-        ],
-        "vscode": {
-            "extensions": [
-                "ms-python.python",
-                "ms-toolsai.jupyter"
-            ]
-        }
+  "name": "FinRL Python Environment",
+  "image": "python:3.11-slim-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylint"
+      ]
     }
+  },
+  "postCreateCommand": "pip install -r requirements.txt",
+  "remoteUser": "root"
 }
-
