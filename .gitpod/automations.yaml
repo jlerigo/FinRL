@@ -1,4 +1,5 @@
 tasks:
-  - name: Install Dependencies
+  install-dependencies:
+    name: Install Dependencies
     init: pip install --no-cache-dir -r requirements.txt && python -m ipykernel install --user --name=finrl-env
     command: jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
