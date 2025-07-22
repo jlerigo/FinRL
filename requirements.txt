@@ -1,7 +1,6 @@
 alpaca-py
 alpaca_trade_api>=2.1.0
 ccxt>=1.66.32
-elegantrl
 
 gputil
 gymnasium
@@ -12,8 +11,9 @@ lz4
 # plot
 matplotlib
 # data handling
-numpy>=1.17.3
-pandas>=1.1.5
+numpy>=1.17.3,<3.0.0
+pandas>=1.1.5,<3.0.0
+scikit-learn>=0.21.0,<2.0.0
 pandas_market_calendars  # calendars
 
 #hooks
@@ -22,12 +22,9 @@ pyfolio-reloaded
 
 # testing requirements
 pytest
-ray[default]
-ray[tune]
+ray[default]>=2.0.0,<3.0.0
+ray[tune]>=2.0.0,<3.0.0
 recommonmark
-
-# Model Building Requirements
-scikit-learn>=0.21.0
 
 scipy
 
