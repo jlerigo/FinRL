@@ -1,8 +1,9 @@
+// .devcontainer/devcontainer.json
 {
     "name": "FinRL Development Environment",
     "build": {
-        "dockerfile": "Dockerfile",
-        "context": "."
+        "dockerfile": "Dockerfile", // This refers to .devcontainer/Dockerfile
+        "context": ".."            // <-- CHANGE THIS: Sets the build context to the repository root
     },
     "customizations": {
         "vscode": {
@@ -65,3 +66,4 @@
         }
     }
 }
+
