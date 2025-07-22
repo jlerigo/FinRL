@@ -5,11 +5,3 @@ tasks:
 ports:
   - port: 8888
     onOpen: notify
-github:
-  prebuilds:
-    # Enable prebuilds for all branches and pull requests
-    master: true
-    branches: true
-    pullRequests: true
-    pullRequestsFromForks: true
-    addCheck: true # Add a check to GitHub for prebuild status
