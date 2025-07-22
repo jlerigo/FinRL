@@ -1,3 +1,9 @@
+# .devcontainer/Dockerfile
+# Use a base image with Python and common build tools
+FROM python:3.9-slim-buster
+
+# Install system dependencies required for FinRL and its libraries
+# e.g., for some ML libraries, or if you need specific compilers
 RUN apt-get update && apt-get install -y \
     build-essential \
     git \
