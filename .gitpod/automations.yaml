@@ -1,6 +1,24 @@
 tasks:
-  install-dependencies:
-    name: Install Dependencies
-    command: pip install --no-cache-dir -r requirements.txt && python -m ipykernel install --user --name=finrl-env && jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
-    triggeredBy:
-      - postDevcontainerStart
+    install-talib:
+        name: Install TA-lib system dependencies
+        command: |
+            sudo apt-get update
+            sudo apt-get install -y build-essential wget
+            wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+            tar -xzf ta-lib-0.4.0-src.tar.gz
+            cd ta-lib/
+            ./configure --prefix=/usr
+            make
+            sudo make install
+            cd ..
+            rm -rf ta-lib ta-lib-0.4.0-src.tar.gz
+        triggeredBy:
+            - postDevcontainerStart
+    
+    install-python-deps:
+        name: Install Python dependencies
+        command: pip install -r requirements.txt
+        dependsOn:
+            - install-talib
+        triggeredBy:
+            - postDevcontainerStart
