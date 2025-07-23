@@ -21,4 +21,4 @@ tasks:
         dependsOn:
             - install-talib
         triggeredBy:
-            - postDevcontainerStart
+            - manual
